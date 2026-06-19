@@ -15,3 +15,12 @@ while True:
         print(c_c.keys())
     if choice==3:
         print(c_c.values())
+    if choice==4:
+        cfc=input('Enter a country')
+        print(c_c[cfc])
+    if choice==5:
+        cd=input('what country do you want to delete')
+        del c_c[cd]
+        print('Sucsessfully Deleted')
+    if choice==6:
+        break
