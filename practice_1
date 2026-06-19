@@ -1,0 +1,38 @@
+
+inputstr = input("Enter the string - ")
+vowels = {
+"a":0,
+"e":0,
+"i":0,
+"o":0,
+"u":0
+}
+for i in inputstr:
+    if i in vowels:
+        vowels[i]+=1
+print(vowels)
+inputstr = input("Enter the string - ")
+vowelslist = [
+"a",
+"e",
+"i",
+"o",
+"u"
+]
+vowels={}
+for i in inputstr:
+    if i in vowelslist:
+        if i in vowels:
+            vowels[i]+=1
+        else:
+            vowels[i]=1
+print(vowels)
+inputstr = input("Enter the string - ")
+charcount = {}
+for i in inputstr:
+    if i.isalpha():
+        if i in charcount:
+            charcount[i]+=1
+        else:
+            charcount[i]=1
+print(charcount)
