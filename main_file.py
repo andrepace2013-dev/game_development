@@ -44,4 +44,38 @@ def update():
 # 2. create actors and add it to items l;ist 
 # 3layout items - disply them with equal spacing
 # animations - move objects down
+def make_items(number_of_extra_items):
+    items_to_create = get_option_to_create(number_of_extra_items)
+    new_items = create_items(items_to_create)
+    layout_items(new_items)
+    animate_items(new_items)
+    return new_items
+def get_option_to_create(number_of_extra_items):
+    items_to_create = ["paper"]
+    for i in range(0,number_of_extra_items):
+        random_option = random.choice(ITEMS)
+        items_to_create.append(random_option)
+    return items_to_create
+def create_items(items_to_create):
+    new_items=[]
+    for i in items_to_create:
+        item=Actor(i)
+        new_items.append(item)
+    return new_items
+def layout_items(new_items):
+    gaps=len(new_items)+1
+    gap_size=WIDTH/gaps
+    random.shuffle(new_items)
+    for index, item in enumerate(new_items):
+        x = (index + 1) * gap_size
+        item.x = x
+def animate_items(new_items):
+    global animations
+    for item in new_items:
+        duration = START_SPEED-current_level
+        animation = animate (item,duration=duration, on_finished=handle_game_over,y=HEIGHT)
+        animations.append(animations)   
+def handle_game_over():
+    global game_over
+    game_over=True
 pgzrun.go()
